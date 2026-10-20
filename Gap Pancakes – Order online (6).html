@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gap Pancakes – Order online</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f0f6;--surface:#fff;--ink:#2a1a3a;--mute:#6f5f80;--line:#e6d9e6;--accent:#d92f64;--accent-ink:#fff;--sun:#ffd25e;--shadow:0 1px 2px rgba(42,26,58,.08);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1124;--surface:#261934;--ink:#f6ecf8;--mute:#b4a3c4;--line:#3a2a4c;--accent:#ff6b93;--accent-ink:#2a0a16;--sun:#ffd25e;--shadow:none}}
+:root[data-theme="dark"]{--bg:#1a1124;--surface:#261934;--ink:#f6ecf8;--mute:#b4a3c4;--line:#3a2a4c;--accent:#ff6b93;--accent-ink:#2a0a16;--sun:#ffd25e;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "DM Sans",system-ui,sans-serif;padding-bottom:96px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;margin:0;line-height:1.1}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:760px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px}
+.brand{font:800 22px "Bricolage Grotesque",sans-serif;background:none;border:0;padding:0;margin-right:auto}
+.brand span{background:var(--sun);color:#2a1a3a;padding:0 8px;border-radius:8px;margin-right:4px}
+.pill{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;font-weight:500}
+main{max-width:760px;margin:0 auto;padding:20px 16px}
+.hero{padding:12px 0 24px}
+.hero h1{font-size:clamp(36px,9vw,60px);font-weight:800;letter-spacing:-.02em}
+.hero p{color:var(--mute);margin:12px 0 0;max-width:46ch}
+.grid{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.card{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px;min-height:150px;box-shadow:var(--shadow);transition:transform .15s}
+.card:active{transform:scale(.98)}
+.card .em{font-size:34px}
+.card h3{font-size:20px;font-weight:800}
+.card small{color:var(--mute)}
+.card.wide{grid-column:1/-1;background:var(--sun);color:#2a1a3a;border-color:transparent;min-height:130px}
+.card.wide small{color:#5a4630}
+.back{border:0;background:none;padding:4px 0;color:var(--mute);font-weight:500;margin-bottom:8px}
+.title{font-size:clamp(30px,7vw,44px);font-weight:800;margin-bottom:20px}
+.cat{margin-bottom:24px}
+.cat h2{font-size:21px;font-weight:800;padding-bottom:8px;border-bottom:2px solid var(--accent);margin-bottom:4px}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .nm{flex:1}
+.row .pr{font-weight:700;white-space:nowrap}
+.row .pr.tba{color:var(--mute);font-weight:400;font-size:14px}
+.add,.step button{width:38px;height:38px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:22px;line-height:1;font-weight:700}
+.add:disabled{background:var(--line);color:var(--mute);cursor:not-allowed}
+.step{display:flex;align-items:center;gap:8px;font-weight:700}
+.step button{width:32px;height:32px;font-size:18px}
+.step span{min-width:18px;text-align:center}
+.cartbar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));z-index:6;pointer-events:none}
+.cartbar button{pointer-events:auto;display:flex;justify-content:space-between;width:100%;max-width:728px;margin:0 auto;background:var(--accent);color:var(--accent-ink);border:0;border-radius:16px;padding:16px 20px;font-weight:700;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+#sheet{position:fixed;inset:0;background:rgba(20,10,30,.55);z-index:20;display:none;align-items:flex-end;justify-content:center}
+#sheet.open{display:flex}
+.panel{background:var(--surface);width:100%;max-width:640px;max-height:92%;overflow:auto;border-radius:24px 24px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom,0px))}
+.panel h2{font-size:26px;margin-bottom:8px}
+.line{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.line .nm{flex:1;font-size:15px}
+.total{display:flex;justify-content:space-between;font-weight:800;font-size:20px;padding:14px 0}
+input,textarea{width:100%;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+label{font-size:14px;color:var(--mute);display:block;margin-bottom:4px}
+.cta{width:100%;border:0;background:var(--accent);color:var(--accent-ink);border-radius:14px;padding:15px;font-weight:700;margin-top:4px;display:block;text-align:center;text-decoration:none}
+.cta.alt{background:var(--sun);color:#2a1a3a}
+.ghost{width:100%;background:none;border:1px solid var(--line);border-radius:14px;padding:13px;margin-top:8px}
+.note{color:var(--mute);font-size:14px}
+pre{white-space:pre-wrap;background:var(--bg);border-radius:12px;padding:12px;font:14px/1.5 "DM Sans",sans-serif}
+</style>
+</head>
+<body>
+<header><div class="bar"><button class="brand" data-act="home"><span>Gap</span>Pancakes</button><button class="pill" data-act="lang" id="lb" aria-label="Language">МК</button><button class="pill" data-act="theme" aria-label="Switch light or dark theme">◐</button></div></header>
+<main id="main"></main>
+<div class="cartbar" id="cartbar"></div>
+<div id="sheet" role="dialog" aria-modal="true" aria-label="Your order"><div class="panel" id="panel"></div></div>
+<script>
+const pk=(b,v)=>v.map(([s,p])=>["Pancake with "+b+s,p]);
+const S=[
+{n:"Pancakes",e:"🥞",d:"7 categories",c:[
+["Nutella Pancakes",pk("Nutella",[["",160],[" and Banana",180],[" and Strawberry",210],[" and Oreo",210],[" and M&M’s",210],[", Banana, and Strawberry",220]])],
+["Dubai Pancakes",[["Dubai Pancake",210],["Dubai Pancake with Banana",230],["Dubai Pancake with Strawberry",250],["Dubai Pancake with M&M’s",240]]],
+["Pistachio Pancakes",pk("Pistachio Cream",[["",160],[" and Banana",180],[" and Strawberry",210]])],
+["Raffaello Cream Pancakes",pk("Raffaello Cream",[["",160],[" and Banana",180],[" and Strawberry",210],[" and White Chocolate",210]])],
+["Kinder Bueno Pancakes",pk("Kinder Bueno",[["",150],[" and Banana",170],[" and Strawberry",200],[" and Oreo",200],[" and M&M’s",200]])],
+["Eurokrem Pancakes",pk("Eurokrem",[["",130],[" and Banana",150],[" and Strawberries",180],[" and Oreo",180]])],
+["Oreo Cream Pancakes",pk("Oreo Cream",[["",160],[" and Banana",180],[" and Strawberry",210],[" and Chocolate Sauce",210]])]]},
+{n:"Refreshing Drinks",e:"🥤",d:"Juices, water, soft drinks",c:[
+["Fresh Juices",[["Fresh Orange Juice",140],["Fresh Mixed Juice",150]]],
+["Water",[["Dobra Voda Active",70],["Dobra Voda Wellness",70]]],
+["Soft Drinks",[["Coca-Cola",80],["Coca-Cola Zero",80],["Fanta",80],["Sprite",80],["Schweppes",80],["Lemon Soda",90],["Lemon Soda Zero",90]]]]},
+{n:"Matcha Latte & Milkshake",e:"🍵",d:"Matcha lattes, milkshakes",c:[
+["Matcha Latte",[["Classic Matcha Latte",150],["Strawberry Matcha Latte",170],["Vanilla Matcha Latte",170],["Hazelnut Matcha Latte",170],["Caramel Matcha Latte",170]]],
+["Milkshake",[["Strawberry Milkshake",100],["Raspberry Milkshake",100],["Oreo Milkshake",120],["Chocolate Milkshake",100],["Pistachio Milkshake",130],["Vanilla Milkshake",100]]]]},
+{n:"Coffee",e:"☕",d:"Hot and iced coffee",c:[
+["Coffee",[["Espresso",80],["Macchiato",90],["Cappuccino",80],["Irish Cappuccino",80],["Vanilla Cappuccino",80],["Hazelnut Cappuccino",80],["Latte",100],["Nescafé",90],["Frappe",90],["Irish Coffee",70],["Americano",80],["Nescafé with Ice Cream",150],["Freddo Espresso",120],["Freddo Cappuccino",120],["Freddo Macchiato",120]]]]},
+{n:"Special Edition",e:"✨",d:"Biscoff Latte and Iced Cocoa",c:[
+["Special Edition",[["Biscoff Latte",150],["Iced Cocoa",80]]]]}
+];
+const cart={};let view=null,lang="en";
+const tr=n=>lang==="mk"?(MK[n]||n):n;
+const ING={"Nutella":"Нутела","Banana":"банана","Strawberry":"јагода","Strawberries":"јагоди","Oreo":"Орео","M&M’s":"M&M’s","Pistachio Cream":"крем од пистачо","Raffaello Cream":"Рафаело крем","White Chocolate":"бело чоколадо","Kinder Bueno":"Киндер Буено","Eurokrem":"Еврокрем","Oreo Cream":"Орео крем","Chocolate Sauce":"чоколаден сос"};
+const MK={"Pancakes":"Палачинки","Refreshing Drinks":"Освежителни пијалаци","Matcha Latte & Milkshake":"Матча лате и милкшејк","Coffee":"Кафе","Special Edition":"Специјално издание",
+"7 categories":"7 категории","Juices, water, soft drinks":"Сокови, вода, газирани пијалаци","Matcha lattes, milkshakes":"Матча лате, милкшејкови","Hot and iced coffee":"Топло и ладно кафе","Biscoff Latte and Iced Cocoa":"Бискоф лате и ладно какао",
+"Nutella Pancakes":"Нутела палачинки","Dubai Pancakes":"Дубаи палачинки","Pistachio Pancakes":"Палачинки со пистачо","Raffaello Cream Pancakes":"Палачинки со Рафаело крем","Kinder Bueno Pancakes":"Киндер Буено палачинки","Eurokrem Pancakes":"Еврокрем палачинки","Oreo Cream Pancakes":"Орео крем палачинки",
+"Dubai Pancake":"Дубаи палачинка","Dubai Pancake with Banana":"Дубаи палачинка со банана","Dubai Pancake with Strawberry":"Дубаи палачинка со јагода","Dubai Pancake with M&M’s":"Дубаи палачинка со M&M’s",
+"Fresh Juices":"Свежи сокови","Water":"Вода","Soft Drinks":"Газирани пијалаци","Matcha Latte":"Матча лате","Milkshake":"Милкшејк",
+"Fresh Orange Juice":"Свеж сок од портокал","Fresh Mixed Juice":"Свеж микс сок","Dobra Voda Active":"Добра Вода Актив","Dobra Voda Wellness":"Добра Вода Велнес","Coca-Cola":"Кока-Кола","Coca-Cola Zero":"Кока-Кола Зеро","Fanta":"Фанта","Sprite":"Спрајт","Schweppes":"Швепс","Lemon Soda":"Лимон сода","Lemon Soda Zero":"Лимон сода зеро",
+"Classic Matcha Latte":"Класичен матча лате","Strawberry Matcha Latte":"Матча лате со јагода","Vanilla Matcha Latte":"Матча лате со ванила","Hazelnut Matcha Latte":"Матча лате со лешник","Caramel Matcha Latte":"Матча лате со карамела",
+"Strawberry Milkshake":"Милкшејк од јагода","Raspberry Milkshake":"Милкшејк од малина","Oreo Milkshake":"Милкшејк од Орео","Chocolate Milkshake":"Милкшејк од чоколадо","Pistachio Milkshake":"Милкшејк од пистачо","Vanilla Milkshake":"Милкшејк од ванила",
+"Espresso":"Еспресо","Macchiato":"Макијато","Cappuccino":"Капучино","Irish Cappuccino":"Ирско капучино","Vanilla Cappuccino":"Капучино со ванила","Hazelnut Cappuccino":"Капучино со лешник","Latte":"Лате","Nescafé":"Нескафе","Frappe":"Фрапе","Irish Coffee":"Ирско кафе","Americano":"Американо","Nescafé with Ice Cream":"Нескафе со сладолед","Freddo Espresso":"Фредо еспресо","Freddo Cappuccino":"Фредо капучино","Freddo Macchiato":"Фредо макијато",
+"Biscoff Latte":"Бискоф лате","Iced Cocoa":"Ладно какао",
+"Fresh pancakes, ready when you are.":"Свежи палачинки, секогаш подготвени.","Pick a section, add what you like, and send your order to the Gap Pancakes stand on the City Promenade.":"Одберете категорија, додајте што сакате и испратете ја нарачката до Gap Pancakes на Градско шеталиште.",
+"‹ All sections":"‹ Сите категории","Price in store":"Цена во продавница","Your order":"Вашата нарачка","Nothing here yet. Add pancakes or drinks from the menu.":"Сè уште нема ништо. Додајте палачинки или пијалаци од менито.","Browse the menu":"Погледни го менито","Total":"Вкупно","Your name":"Вашето име","Phone number":"Телефонски број","Note (optional)":"Забелешка (опционално)","Place order":"Испрати нарачка","Keep browsing":"Продолжи со разгледување","Order ready":"Нарачката е подготвена","To finish, call or message the stand with your order so they can prepare it.":"За да завршите, јавете се или испратете порака до штандот за да ја подготват нарачката.","Call 075-670-827":"Јави се на 075-670-827","Text this order":"Испрати SMS","Copy order":"Копирај нарачка","Copied":"Копирано","Start a new order":"Нова нарачка"};
+S.forEach(s=>s.c.forEach(c=>c[1].forEach(([n])=>{if(MK[n]||!n.startsWith("Pancake with "))return;const p=n.slice(13).split(/, and |, | and /).map(x=>ING[x]||x);MK[n]="Палачинка со "+(p.length>2?p.slice(0,-1).join(", ")+" и "+p[p.length-1]:p.join(" и "))})));
+const RX=[[/^View order · (\d+) items?$/,"Нарачка · $1"],[/^(.+) each$/,"$1 по парче"]];
+const obs=new MutationObserver(()=>applyLang());
+function applyLang(){
+  if(lang!=="mk")return;
+  obs.disconnect();
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;
+  while(n=w.nextNode()){
+    if(n.parentNode.closest(".brand,script"))continue;
+    const t=n.nodeValue.trim();if(!t)continue;
+    let r=MK[t];
+    if(!r)for(const[a,b]of RX)if(a.test(t)){r=t.replace(a,b);break}
+    if(r)n.nodeValue=n.nodeValue.replace(t,r);
+  }
+  obs.observe(document.body,{childList:true,subtree:true,characterData:true});
+}
+const $=s=>document.querySelector(s),esc=t=>t.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const item=k=>{const[a,b,c]=k.split(".");return S[a].c[b][1][c]};
+const money=n=>n+(lang==="mk"?" ден":" den");
+const count=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const total=()=>Object.entries(cart).reduce((t,[k,q])=>t+item(k)[1]*q,0);
+
+function render(){
+  const m=$("#main");
+  if(view===null){
+    m.innerHTML=`<div class="hero"><h1>Fresh pancakes, ready when you are.</h1><p>Pick a section, add what you like, and send your order to the Gap Pancakes stand on the City Promenade.</p></div><div class="grid">`+
+    S.map((s,i)=>`<button class="card${i===0?" wide":""}" data-act="open" data-i="${i}"><span class="em">${s.e}</span><h3>${esc(s.n)}</h3><small>${s.d}</small></button>`).join("")+`</div>`;
+  }else{
+    const s=S[view];
+    m.innerHTML=`<button class="back" data-act="home">‹ All sections</button><h1 class="title">${esc(s.n)}</h1>`+
+    s.c.map((c,ci)=>`<section class="cat"><h2>${esc(c[0])}</h2>`+c[1].map((it,ii)=>{
+      const k=`${view}.${ci}.${ii}`,q=cart[k]||0;
+      return `<div class="row"><span class="nm">${esc(it[0])}</span>`+
+      (it[1]==null?`<span class="pr tba">Price in store</span><button class="add" disabled aria-label="Unavailable to order online">+</button>`:
+      `<span class="pr">${money(it[1])}</span>`+(q?`<span class="step"><button data-act="dec" data-k="${k}" aria-label="Remove one">−</button><span>${q}</span><button data-act="inc" data-k="${k}" aria-label="Add one">+</button></span>`:`<button class="add" data-act="inc" data-k="${k}" aria-label="Add ${esc(it[0])}">+</button>`))+`</div>`}).join("")+`</section>`).join("");
+  }
+  bar();
+}
+function bar(){
+  const n=count();
+  $("#cartbar").innerHTML=n?`<button data-act="cart"><span>View order · ${n} item${n>1?"s":""}</span><span>${money(total())}</span></button>`:"";
+}
+function cartView(){
+  const ks=Object.keys(cart);
+  if(!ks.length){$("#panel").innerHTML=`<h2>Your order</h2><p class="note">Nothing here yet. Add pancakes or drinks from the menu.</p><button class="cta" data-act="close">Browse the menu</button>`;return}
+  $("#panel").innerHTML=`<h2>Your order</h2>`+ks.map(k=>{const it=item(k);return `<div class="line"><span class="nm">${esc(it[0])}<br><small class="note">${money(it[1])} each</small></span><span class="step"><button data-act="dec" data-k="${k}" aria-label="Remove one">−</button><span>${cart[k]}</span><button data-act="inc" data-k="${k}" aria-label="Add one">+</button></span></div>`}).join("")+
+  `<div class="total"><span>Total</span><span>${money(total())}</span></div>
+  <label for="cn">Your name</label><input id="cn" autocomplete="name">
+  <label for="cp">Phone number</label><input id="cp" type="tel" autocomplete="tel">
+  <label for="cx">Note (optional)</label><textarea id="cx" rows="2"></textarea>
+  <button class="cta" data-act="place">Place order</button><button class="ghost" data-act="close">Keep browsing</button>`;
+}
+function orderText(name,phone,note){
+  return (lang==="mk"?"Нарачка – Gap Pancakes\n":"Gap Pancakes order\n")+Object.keys(cart).map(k=>`${cart[k]}× ${tr(item(k)[0])} — ${money(item(k)[1]*cart[k])}`).join("\n")+(lang==="mk"?`\nВкупно: ${money(total())}\nИме: ${name}\nТелефон: ${phone}`:`\nTotal: ${money(total())}\nName: ${name}\nPhone: ${phone}`)+(note?`\n${lang==="mk"?"Забелешка":"Note"}: ${note}`:"");
+}
+function change(k,d){
+  cart[k]=(cart[k]||0)+d;if(cart[k]<=0)delete cart[k];
+  render();if($("#sheet").classList.contains("open"))cartView();
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-act]");
+  if(e.target.id==="sheet"){$("#sheet").classList.remove("open");return}
+  if(!b)return;
+  const a=b.dataset.act;
+  if(a==="home"){view=null;$("#sheet").classList.remove("open");render();scrollTo(0,0)}
+  else if(a==="open"){view=+b.dataset.i;render();scrollTo(0,0)}
+  else if(a==="inc")change(b.dataset.k,1);
+  else if(a==="dec")change(b.dataset.k,-1);
+  else if(a==="cart"){cartView();$("#sheet").classList.add("open")}
+  else if(a==="close")$("#sheet").classList.remove("open");
+  else if(a==="lang"){lang=lang==="mk"?"en":"mk";document.documentElement.lang=lang;$("#lb").textContent=lang==="mk"?"EN":"МК";render()}
+  else if(a==="theme"){const r=document.documentElement,d=matchMedia("(prefers-color-scheme:dark)").matches;const cur=r.dataset.theme||(d?"dark":"light");r.dataset.theme=cur==="dark"?"light":"dark"}
+  else if(a==="place"){
+    const name=$("#cn").value.trim(),phone=$("#cp").value.trim(),note=$("#cx").value.trim();
+    if(!name||!phone){alert(lang==="mk"?"Внесете име и телефонски број.":"Please enter your name and phone number.");return}
+    const t=orderText(name,phone,note);
+    $("#panel").innerHTML=`<h2>Order ready</h2><pre>${esc(t)}</pre><p class="note">To finish, call or message the stand with your order so they can prepare it.</p><a class="cta" href="tel:+38975670827">Call 075-670-827</a><a class="cta alt" href="sms:+38975670827?&body=${encodeURIComponent(t)}">Text this order</a><button class="ghost" data-act="copy" data-t="${encodeURIComponent(t)}">Copy order</button><button class="ghost" data-act="done">Start a new order</button>`;
+  }
+  else if(a==="copy"){try{navigator.clipboard.writeText(decodeURIComponent(b.dataset.t));b.textContent="Copied"}catch(x){b.textContent="Copy not available"}}
+  else if(a==="done"){for(const k in cart)delete cart[k];$("#sheet").classList.remove("open");view=null;render()}
+});
+render();obs.observe(document.body,{childList:true,subtree:true,characterData:true});
+</script>
+</body>
+</html>
